@@ -1,0 +1,668 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Barra de navegación */
+nav {
+    background-color: #3498db;  /* Fondo azul para la barra */
+    padding: 15px;
+    color: white;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+
+nav ul li a {
+    color: white;  /* color blanco por defecto */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;  /* transición suave para el cambio de color */
+}
+
+nav ul li a:hover {
+    color: #f39c12;  /* color al pasar el ratón */
+}
+
+nav ul li a:focus, nav ul li a:active {
+    color: #1abc9c;  /* color celeste cuando se hace clic o se selecciona */
+}
+
+/* Resaltar el enlace activo (cuando el usuario ha hecho clic en él) */
+nav ul li a.active {
+    color: #1abc9c;  /* color celeste para el enlace activo */
+}
+
+/* Estilos para la bienvenida */
+.bienvenida {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+    background-color: #2980b9;
+    color: white;
+}
+
+.bienvenida-texto {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.bienvenida-texto h1 {
+    font-size: 2.5rem;
+}
+
+.bienvenida-texto p {
+    font-size: 1.2rem;
+}
+
+.bienvenida-imagen img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+/* Botones en la bienvenida o index */
+.btn-bienvenida {
+    background-color: #3498db;  /* Fondo azul */
+    color: white;
+    padding: 12px 30px;  /* Espaciado más amplio para un botón más grande */
+    border-radius: 25px;  /* Bordes redondeados */
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Sombra sutil */
+}
+
+/* Efecto al pasar el ratón */
+.btn-bienvenida:hover {
+    background-color: #2980b9;  /* Color ligeramente más oscuro al pasar el ratón */
+    transform: translateY(-4px);  /* Efecto de elevar el botón */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);  /* Sombra más pronunciada */
+}
+
+/* Efecto al hacer clic */
+.btn-bienvenida:active {
+    transform: translateY(2px);  /* Efecto de "presionar" el botón */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Para que los botones no tengan borde */
+a.btn-bienvenida, button.btn-bienvenida {
+    border: none;
+}
+
+/* Otros detalles visuales */
+.btn-bienvenida span {
+    transition: transform 0.3s ease;
+}
+
+/* Animación de texto al pasar el ratón */
+.btn-bienvenida:hover span {
+    transform: translateX(5px);  /* Desplazamiento suave hacia la derecha */
+}
+/* Botones */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Productos */
+.productos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.producto {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+}
+
+.producto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Carrito */
+.carrito-lista {
+    list-style: none;
+    padding: 0;
+}
+
+.carrito-item {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carrito-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Botón de eliminar en el carrito */
+.carrito-item .btn-eliminar {
+    background-color: #e74c3c;
+    color: white;
+    padding: 6px 12px;  /* Reducido el tamaño del padding */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;  /* Tamaño de la fuente reducido */
+    transition: background-color 0.3s;
+}
+
+.carrito-item .btn-eliminar:hover {
+    background-color: #c0392b;
+}
+
+
+/* Página de finalización de compra */
+.confirmacion-compra {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.confirmacion-compra h2 {
+    color: #2ecc71;
+    font-size: 30px;
+}
+
+.resumen-compra {
+    width: 100%;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+}
+
+.resumen-compra th, .resumen-compra td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.resumen-compra th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    width: 100%;
+}
+/* Estilo para el botón de finalizar compra */
+.confirmacion-compra .btn-primary {
+    background-color: #2ecc71;  /* Verde suave */
+    color: white;
+    padding: 10px 20px;  /* Ajuste del tamaño del botón */
+    border-radius: 25px;  /* Bordes redondeados más pronunciados */
+    font-size: 16px;  /* Fuente de tamaño intermedio */
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.confirmacion-compra .btn-primary:hover {
+    background-color: #27ae60;  /* Verde más oscuro al pasar el ratón */
+    transform: translateY(-2px);  /* Efecto de elevar el botón */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);  /* Sombra al pasar el ratón */
+}
+
+.confirmacion-compra .btn-primary:active {
+    background-color: #1e8449;  /* Verde más oscuro al hacer clic */
+    transform: translateY(1px);  /* Efecto de pulsación */
+}
+/* Estilo de los botones de los productos */
+.producto .btn-primary {
+    background-color: #3498db;  /* Azul claro */
+    color: white;
+    padding: 8px 16px;  /* Tamaño moderado */
+    border-radius: 20px;  /* Bordes redondeados más suaves */
+    font-size: 14px;  /* Tamaño más pequeño para botones */
+    font-weight: bold;  /* Negrita para mayor visibilidad */
+    text-transform: uppercase;  /* Texto en mayúsculas */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s;  /* Transiciones suaves */
+    text-decoration: none;
+    display: inline-block;
+    border: 2px solid transparent;  /* Borde invisible */
+}
+
+.producto .btn-primary:hover {
+    background-color: #2980b9;  /* Azul más oscuro */
+    transform: translateY(-3px);  /* Efecto de elevar el botón */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);  /* Sombra más fuerte */
+}
+
+.producto .btn-primary:active {
+    background-color: #1abc9c;  /* Verde claro */
+    transform: translateY(1px);  /* Efecto de pulsación */
+}   
+
+/* Contenedor del login */
+.login-container {
+    background-color: white;
+    width: 350px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 50px auto;
+}
+
+/* Título del login */
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #2980b9;
+}
+
+/* Campos del formulario */
+.login-container label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Botón de inicio de sesión */
+.login-container .btn-primary {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Enlace de registro */
+.login-container p {
+    margin-top: 10px;
+}
+
+.login-container a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-container a:hover {
+    color: #f39c12;
+}
+
+/* Estilo para el formulario de facturación */
+.facturacion-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+.facturacion-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2980b9;
+}
+
+.facturacion-container label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+.facturacion-container input, .facturacion-container select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    background-color: #fafafa;
+}
+
+.facturacion-container input:focus, .facturacion-container select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.facturacion-container .btn-primary {
+    background-color: #2ecc71;  /* Verde suave */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.facturacion-container .btn-primary:hover {
+    background-color: #27ae60;  /* Verde más oscuro */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.facturacion-container .btn-primary:active {
+    background-color: #1e8449;  /* Verde más oscuro */
+    transform: translateY(1px);
+}
+
+/* Estilos para los campos del formulario de dirección y facturación */
+.facturacion-container .input-direccion {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #fafafa;
+    font-size: 1rem;
+}
+
+.facturacion-container .input-direccion:focus {
+    border-color: #3498db;
+}
+
+
+
+/* Contenedor del formulario */
+.register-container {
+    background-color: white;
+    width: 350px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 50px auto;
+}
+
+/* Título */
+.register-container h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* Formularios */
+.register-container form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Campos del formulario */
+.register-container label {
+    text-align: left;
+    width: 100%;
+    margin-top: 10px;
+    font-weight: 500;
+    color: #333;
+}
+
+.register-container input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.register-container input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+    outline: none;
+}
+
+/* Botón */
+.register-container .btn-primary {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.register-container .btn-primary:hover {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+}
+
+/* Mensajes */
+.success-msg, .error-msg {
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 500;
+    margin-top: 15px;
+}
+
+.success-msg {
+    background: #eafaf1;
+    color: #2ecc71;
+}
+
+.error-msg {
+    background: #fdecea;
+    color: #e74c3c;
+}
+
+/* Enlace */
+.register-container p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.register-container a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-container a:hover {
+    color: #f39c12;
+}
+
+/* Diseño responsivo */
+@media (max-width: 500px) {
+    .register-container {
+        width: 90%;
+        padding: 30px;
+    }
+}
+
+
+
+
+.dashboard-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.dashboard-container h2 {
+    text-align: center;
+    color: #333;
+}
+
+.dashboard-container h3 {
+    color: #555;
+}
+
+.dashboard-form {
+    margin-top: 20px;
+}
+
+.dashboard-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.dashboard-form input, 
+.dashboard-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.dashboard-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.dashboard-btn:hover {
+    background-color: #45a049;
+}
+
+.dashboard-message {
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    color: #333;
+    border-radius: 4px;
+}
+
+.dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.dashboard-table th, 
+.dashboard-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.dashboard-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.dashboard-table td a {
+    text-decoration: none;
+    color: #fff;
+    padding: 6px 10px;
+    margin: 0 5px;
+    border-radius: 4px;
+}
+
+.dashboard-btn-secondary {
+    background-color: #5bc0de;
+}
+
+.dashboard-btn-danger {
+    background-color: #d9534f;
+}
+
+.dashboard-table td a:hover {
+    opacity: 0.8;
+}
+
+.dashboard-btn-logout {
+    display: block;
+    width: 100px;
+    padding: 10px;
+    background-color: #f44336;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.dashboard-btn-logout:hover {
+    background-color: #e53935;
+}
+
